@@ -1,5 +1,6 @@
 FROM dunglas/frankenphp:php8.2
 
+# install php extensions termasuk GD untuk QR Code
 RUN install-php-extensions \
     ctype \
     curl \
@@ -15,6 +16,9 @@ RUN install-php-extensions \
     tokenizer \
     xml \
     gd
+
+# install composer
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 WORKDIR /app
 
