@@ -31,5 +31,7 @@ WORKDIR /app
 COPY . .
 
 RUN composer install --no-interaction --optimize-autoloader --no-scripts
+RUN npm install
+RUN npm run build
 RUN php artisan migrate --force || true
 CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=8000"]
