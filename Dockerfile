@@ -17,6 +17,7 @@ RUN install-php-extensions \
     openssl \
     pcre \
     pdo \
+    pdo_mysql \
     session \
     tokenizer \
     xml \
